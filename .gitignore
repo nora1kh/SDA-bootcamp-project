@@ -1,0 +1,9 @@
+.env
+SdaProjVenv/
+__pycache__/
+chroma.log
+pdf_store/
+
+pyc
+*.pyo
+*.pyd
