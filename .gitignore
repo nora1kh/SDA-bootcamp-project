@@ -1,6 +1,8 @@
 .env
 SdaProjVenv/
 __pycache__/
+chromadb/
+chat_logs/
 chroma.log
 pdf_store/
 
