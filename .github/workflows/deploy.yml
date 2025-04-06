@@ -1,0 +1,32 @@
+name: Deploy to Azure VM
+
+on:
+  push:
+    branches:
+      - main  # Change to your default branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" >  C:\Users\Nora\.ssh\MyVMproject_key.pem  
+          chmod 600 ~/.ssh/MyVMproject_key.pem 
+          ssh-keyscan -H 135.237.121.62 >> ~/.ssh/known_hosts
+
+      - name: Deploy via SSH
+        run: |
+          ssh azureuser@135.237.121.62 << 'EOF'
+            cd ~/SDA-bootcamp-project
+            git pull origin main
+            source venv/bin/activate
+            pip install -r requirements.txt
+            sudo systemctl restart your-backend-service
+            sudo systemctl restart your-frontend-service
+          EOF
