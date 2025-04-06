@@ -5,7 +5,7 @@ date
 echo "Updating Python application on VM..."
 
 APP_DIR="/home/azureuser/SDA-bootcamp-project"
-GIT_REPO="https://github.com/nora1kh/SDA-bootcamp-project.git"
+GIT_REPO="https://${GITHUB_TOKEN}@github.com/nora1kh/SDA-bootcamp-project.git"
 BRANCH="main"
 
 # Update code
