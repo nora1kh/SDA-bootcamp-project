@@ -1,4 +1,11 @@
 .env
+venv/
+chroma.sqlite3
+c1d4ea94-1820-46e8-834a-68453c426f5b
+# Ignore specific files and directories
+c1d4ea94-1820-46e8-834a-68453c426f5b/
+*.bin
+
 SdaProjVenv/
 __pycache__/
 chromadb/
@@ -9,3 +16,6 @@ pdf_store/
 pyc
 *.pyo
 *.pyd
+
+*.sqlite3
+*.log
